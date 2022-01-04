@@ -1,3 +1,3 @@
-import calc from './calculator';
+import handleInput from './handleInput';
 
-calc();
+handleInput();
