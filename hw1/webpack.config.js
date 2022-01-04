@@ -2,15 +2,22 @@ const path = require('path');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = ({ development }) => ({
-  entry: './src/calculator.ts',
+  entry: './src/index.ts',
   devtool: development ? 'inline-source-map' : false,
   mode: development ? 'development' : 'production',
   output: {
-    filename: 'calculator.js',
+    filename: 'index.js',
     path: path.resolve(__dirname, 'dist')
   },
   resolve: {
-    extensions: ['.ts']
+    extensions: ['.ts'],
+    fallback: {
+      "fs": false,
+      "path": false,
+      "child_process": false,
+      "crypto": false,
+      "os": false
+    },
   },
   module: {
     rules: [
