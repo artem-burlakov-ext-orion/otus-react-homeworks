@@ -9,15 +9,9 @@ module.exports = ({ development }) => ({
     filename: 'index.js',
     path: path.resolve(__dirname, 'dist')
   },
+  target: 'node',
   resolve: {
     extensions: ['.ts'],
-    fallback: {
-      "fs": false,
-      "path": false,
-      "child_process": false,
-      "crypto": false,
-      "os": false
-    },
   },
   module: {
     rules: [
