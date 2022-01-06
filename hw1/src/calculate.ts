@@ -1,6 +1,8 @@
 import {
+  isFirstPriority,
   isSecondPriority,
   isThirdPriority,
+  isFirstPriorityExist,
   isSecondPriorityExist,
   isCloseBracket,
   isOpenBracket,
@@ -25,6 +27,8 @@ const getResultForTwoNumbers = (parsedObj: CurrentStatementType): string | never
       return String(first * second);
     case '/':
       return String(first / second);
+    case '**':
+      return String(first ** second);
     default:
       throw new Error('This type of operation is not supported');
   }
@@ -48,13 +52,21 @@ const buildNewStatementData = (data: string[], index: number): string[] => {
   return currentStatementData;
 };
 
+const getIndex = (data: string[]): number => {
+  if (isFirstPriorityExist(data)) {
+    return data.findIndex(isFirstPriority);
+  }
+  if (isSecondPriorityExist(data)) {
+    return data.findIndex(isSecondPriority);
+  }
+  return data.findIndex(isThirdPriority);
+}
+
 const getResult = (elems: string[]): string => {
   let result = [...elems];
   while (result.length > 1) {
     const statementData = [...result];
-    const index = isSecondPriorityExist(statementData)
-      ? statementData.findIndex(isSecondPriority)
-      : statementData.findIndex(isThirdPriority);
+    const index = getIndex(statementData);
     result = buildNewStatementData(statementData, index);
   }
   return result[0];

@@ -21,7 +21,7 @@ export default (symbols: string[]): void | never => {
   if (!isBalanced(symbols)) {
     throw new Error('Count of close brackets should be the same count of open brackets');
   }
-  if (symbols.some((symbol) => symbol.length > 1 && isNaN(Number(symbol)))) {
+  if (symbols.some((symbol) => symbol.length > 1 && symbol !== '**' && isNaN(Number(symbol)))) {
       throw new Error('Should use spaces between input elements');
   }
   if (symbols.some((symbol) => !['+', '-', '*', '/'.includes(symbol)] && !isNaN(Number(symbol)))) {

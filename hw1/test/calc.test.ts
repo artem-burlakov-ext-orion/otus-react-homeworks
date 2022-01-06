@@ -1,10 +1,12 @@
 import calculate from '../src/calculate';
-import { showError } from '../src/handleInputOutput';
 
-describe('+ && -', () => {
+describe('common tests', () => {
   it('should return number', () => {
     expect(typeof calculate('1 + 0')).toBe('number');
   });
+});
+
+describe('+ && -', () => {
   it('should return 7', () => {
     expect(calculate('3 + 4')).toBe(7);
   });
@@ -14,6 +16,10 @@ describe('+ && -', () => {
   it('should return 0', () => {
     expect(calculate('3 + 4 - 7')).toBe(0);
   });
+  it('should return 20', () => {
+    expect(calculate('22 - 2')).toBe(20);
+  });
+
 });
 
 describe('* && /', () => {
@@ -32,15 +38,24 @@ describe('* && /', () => {
   });
 });
 
+describe('**', () => {
+  it('should return 27', () => {
+    expect(calculate('3 ** 3')).toBe(27);
+  });
+  it('should return 16', () => {
+    expect(calculate('2 ** 4')).toBe(16);
+  });
+});
+
 describe('all operations', () => {
   it('should return 13', () => {
     expect(calculate('3 * 4 + 1')).toBe(13);
   });
-  it('should return -14', () => {
-    expect(calculate('-3 * 4 - 2')).toBe(-14);
+  it('should return -20', () => {
+    expect(calculate('-3 * 4 - 2 ** 3')).toBe(-20);
   });
-  it('should return 12', () => {
-    expect(calculate('6 / 3 + 5 * 2')).toBe(12);
+  it('should return 11', () => {
+    expect(calculate('9 / 3 ** 2 + 5 * 2')).toBe(11);
   });
 });
 
