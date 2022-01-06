@@ -1,4 +1,4 @@
-const isFirstPriority = (symbol: string): boolean => ['**'].includes(symbol);
+const isFirstPriority = (symbol: string): boolean => ['^'].includes(symbol);
 const isSecondPriority = (symbol: string): boolean => ['*', '/'].includes(symbol);
 const isThirdPriority = (symbol: string): boolean => ['+', '-'].includes(symbol);
 const isFirstPriorityExist = (data: string[]): boolean => !!data.find(isFirstPriority);

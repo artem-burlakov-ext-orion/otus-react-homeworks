@@ -38,12 +38,12 @@ describe('* && /', () => {
   });
 });
 
-describe('**', () => {
+describe('^', () => {
   it('should return 27', () => {
-    expect(calculate('3 ** 3')).toBe(27);
+    expect(calculate('3 ^ 3')).toBe(27);
   });
   it('should return 16', () => {
-    expect(calculate('2 ** 4')).toBe(16);
+    expect(calculate('2 ^ 4')).toBe(16);
   });
 });
 
@@ -52,10 +52,10 @@ describe('all operations', () => {
     expect(calculate('3 * 4 + 1')).toBe(13);
   });
   it('should return -20', () => {
-    expect(calculate('-3 * 4 - 2 ** 3')).toBe(-20);
+    expect(calculate('-3 * 4 - 2 ^ 3')).toBe(-20);
   });
   it('should return 11', () => {
-    expect(calculate('9 / 3 ** 2 + 5 * 2')).toBe(11);
+    expect(calculate('9 / 3 ^ 2 + 5 * 2')).toBe(11);
   });
 });
 

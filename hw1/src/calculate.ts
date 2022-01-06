@@ -27,7 +27,7 @@ const getResultForTwoNumbers = (parsedObj: CurrentStatementType): string | never
       return String(first * second);
     case '/':
       return String(first / second);
-    case '**':
+    case '^':
       return String(first ** second);
     default:
       throw new Error('This type of operation is not supported');
